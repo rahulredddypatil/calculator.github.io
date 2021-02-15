@@ -1,0 +1,133 @@
+<html>
+<head>
+   <title>Simple Calculator</title>
+   <style>
+  
+     .box
+     {
+       margin-left:500px;
+       margin-top:50px;	   
+       height:500px;
+       width:330px;
+       box-shadow: 0 4px 8px 0 rgba(194, 113, 113, 0.4),0 6px 20px 0 rgba(0,0,0,0.1);
+       background-color:burlywood;
+       border-radius:10px;
+     }
+	 
+     .displaydesign
+     {
+       background-color:wheat;
+       height:100px;
+       width:330px;
+       border-top-left-radius:10px;
+       border-top-right-radius:10px;
+       font-size:50px;
+       font-weight:700;
+       float:right;
+	   border:none;
+	   color:black;
+	   text-align:right;
+	   padding-right:40px;
+     }
+     .buttondesign
+ 	 {
+	    width:50px;
+		height:50px;
+		background:#fff;
+		font-size:15px;
+		font-weight:700;
+		color:#5E5858;
+		border:none;
+		border-radius:10px;
+		cursor:pointer;
+		margin:20px 5px 5px 20px;
+		outline:none;
+	}
+	.buttondesign#plus
+	{
+	 background-color:rgb(240, 130, 130);
+	}
+    .buttondesign#minus
+    {
+     background-color:#ffe0ac;
+    }
+    .buttondesign#multiply
+    {
+     background-color:#43d8c9;
+    }
+    .buttondesign#divide
+    {
+     background-color:#ffa41b;
+    }
+    .buttondesign#equals
+    {
+     background-color:#6886c5;
+    }
+    .buttondesign#percent
+    {
+     background-color:#4d98ec;
+    }	 
+  </style>
+
+  <script>
+  
+    function display(val)
+      {
+	   
+        document.getElementById('final_output').value+=val;
+      }
+	function solve()
+      {
+        var expr= document.getElementById('final_output').value;
+        var soln= eval(expr);
+        document.getElementById('final_output').value=soln;
+      }
+	function c()
+      {
+        document.getElementById('final_output').value="";
+      }
+    function ce()
+      {
+	    var txt = document.getElementById("final_output").value;
+		txt = txt.slice(0,-1);
+        document.getElementById("final_output").value = txt;
+      }
+    function percent()
+      {
+        num = document.getElementById("final_output").value;
+        num = eval(num/100);
+        document.getElementById("final_output").value = num;	
+      }		
+  </script>
+</head>
+ 
+  <body style="background-image:url('image50.jpg')">
+   <div class="box">
+         <input type="text" class="displaydesign" id="final_output"><br/>
+   
+  
+   <button type="button" class="buttondesign" onclick="c()">C</button>
+   <button type="button" class="buttondesign" onclick="ce()">CE</button>
+   <button type="button" class="buttondesign" id="percent" onclick="percent('%' )">%</button>
+   <button type="button" class="buttondesign" id="divide" onclick="display('/')">/</button><br/>
+   <button type="button" class="buttondesign" onclick="display('7')">7</button>
+   <button type="button" class="buttondesign" onclick="display('8')">8</button>
+   <button type="button" class="buttondesign" onclick="display('9')">9</button>
+   <button type="button" class="buttondesign" id="multiply" onclick="display('*')">*</button><br/>
+   <button type="button" class="buttondesign" onclick="display('4')">4</button>
+   <button type="button" class="buttondesign" onclick="display('5')">5</button>
+   <button type="button" class="buttondesign" onclick="display('6')">6</button>
+   <button type="button" class="buttondesign" id="minus" onclick="display('-')">-</button><br/>
+   <button type="button" class="buttondesign" onclick="display('1')">1</button>
+   <button type="button" class="buttondesign" onclick="display('2')">2</button>
+   <button type="button" class="buttondesign" onclick="display('3')">3</button>
+   <button type="button" class="buttondesign" id="plus" onclick="display('+')">+</button><br/>
+   <button type="button" class="buttondesign" onclick="display('.')">.</button>
+   <button type="button" class="buttondesign" onclick="display('0')">0</button>
+   <button type="button" class="buttondesign" onclick="display('00')">00</button>
+   <button type="button" class="buttondesign" id="equals" onclick="solve()">=</button>
+   
+   </div>
+   
+</body>
+</html>
